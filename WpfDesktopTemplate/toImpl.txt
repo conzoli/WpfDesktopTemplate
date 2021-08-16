@@ -1,0 +1,81 @@
+﻿ok Fav User Control
+   ok Einbinden
+
+   -- Alle User Interface Elemente als Beispiel anzeigen
+     ok Label 
+        H1
+        H2
+        H3
+        Content
+     ok Buttons
+        Primary
+        Secoondary
+        Success
+        Danger
+        Warning
+        Info
+     ok TextBlock
+     ok TextBox
+     ok Comobox
+     ok radio-buttons
+     -- Tabelle?
+     -- Slider
+     -- StatusBalken
+
+ok Globales Styles XAML
+   -- obige UI-Elemente Gestalten
+
+
+
+ok Mehrsprachigkeit impl.
+   -- RICO Beispiel nachvollziehen
+
+
+-- Dialoge
+   ok Warning/Error/Info
+   ok YES/No Dialog
+   -- FileOpen
+
+
+   part1 https://www.youtube.com/watch?v=oeI2MmUELbY
+   part2: https://www.youtube.com/watch?v=KbzuK5i_Sks 
+               
+
+
+
+
+Refactoring
+-- ColorName SHow Button Ändern
+-- Styles in mehrere Dateien auslagern
+
+
+
+
+WPF-Dark Themes Vorlagen:
+https://github.com/AngryCarrot789/WPFDarkTheme
+
+
+
+
+
+--------------------------------------------------------------------------
+Access resx in code 
+
+
+using System;
+using System.Resources;
+
+public class Example
+{
+   public static void Main()
+   {
+      ResourceManager rm = new ResourceManager("Strings", 
+                               typeof(Example).Assembly);
+      string timeString = rm.GetString("TimeHeader");
+      Console.WriteLine("{0} {1:T}", timeString, DateTime.Now);   
+   }
+}
+// The example displays output like the following:
+//        The current time is 2:03:14 PM
+
+----------------------------------------------------------------------------

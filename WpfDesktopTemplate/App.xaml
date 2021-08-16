@@ -1,0 +1,12 @@
+﻿<Application x:Class="WpfDesktopTemplate.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WpfDesktopTemplate"
+             
+             xmlns:alert="clr-namespace:WpfDesktopTemplate.Dialogs.Alert"
+             
+             StartupUri="Views/MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary Source="ResourceDicitinaries/StyleDictionary.xaml" />
+    </Application.Resources>
+</Application>

@@ -1,0 +1,132 @@
+﻿<Window x:Class="WpfDesktopTemplate.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfDesktopTemplate"
+        
+        xmlns:VM="clr-namespace:WpfDesktopTemplate.ViewModels"
+        xmlns:Views="clr-namespace:WpfDesktopTemplate.Views"
+
+        mc:Ignorable="d"
+        
+        xmlns:resx="clr-namespace:WpfDesktopTemplate.Resources"
+        
+        Title="{Binding WindowTitle}"
+        ResizeMode="CanResizeWithGrip"
+        Height="{Binding WindowSizeHeight, Mode=TwoWay}" 
+        Width="{Binding WindowSizeWidth, Mode=TwoWay}">
+
+    <Window.DataContext>
+        <VM:MainWindowViewModel />
+    </Window.DataContext>
+
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="Black" BorderThickness="0">
+                            <ContentPresenter HorizontalAlignment="left" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#2F353D"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+    </Window.Resources>
+    
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{Binding NavMenuWidth}" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0"  Background="#21252B">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            
+            <StackPanel Grid.Row="0" Orientation="Vertical" Margin="0,5,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <Grid Height="45" Width="5" Background="Transparent"></Grid>
+                    <Button Width="250" Height="45" BorderThickness="0" 
+                            Command="{Binding NavMenuToggleCommand}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/images/icons/cil-menu.png" 
+                                   Height="20" Width="20" Margin="10,0,0,0" />
+                            <Label Content="{x:Static resx:Strings.HamburgerMenu}" 
+                                   Foreground="#B5B6B8" 
+                                   Margin="50,0,0,0" Height="45" 
+                                   VerticalContentAlignment="Center" 
+                                   FontSize="16"></Label>
+                        </StackPanel>
+                        
+                    </Button>
+                    
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <Grid Height="45" Width="5" Background="{Binding HomeButtonClickedColor}"></Grid>
+                    <Button Width="250" Height="45" BorderThickness="0" Command="{Binding CmdShowHomeClickCommand}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/images/icons/cil-home.png" Height="20" Width="20" Margin="10,0,0,0" />
+                            <Label Content="{x:Static resx:Strings.Home}" Margin="50,0,0,0"  Style="{StaticResource NavButtonLabel}"></Label>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <Grid Height="45" Width="5" Background="{Binding FavButtonClickedColor}"></Grid>
+                    <Button Width="250" Height="45" BorderThickness="0" Command="{Binding ShowFavClickCommand}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/images/icons/cil-heart.png" Height="20" Width="20" Margin="10,0,0,0" />
+                            <Label Content="{x:Static resx:Strings.Favorite}" Margin="50,0,0,0" Style="{StaticResource NavButtonLabel}"></Label>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <Grid Height="45" Width="5" Background="Transparent"></Grid>
+                    <Button Width="250" Height="45"  BorderThickness="0" Command="{Binding ExitProgrammCommand}" >
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/images/icons/cil-x.png" Height="20" Width="20" Margin="10,0,0,0" />
+                            <Label Content="{x:Static resx:Strings.Close}" Margin="50,0,0,0" Style="{StaticResource NavButtonLabel}" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
+                
+
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <Grid Height="45" Width="5" Background="{Binding SettingsButtonClickedColor}"></Grid>
+                    <Button Width="250" Height="45"  BorderThickness="0" Command="{Binding CmdSettingsClickCommand}" >
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/images/icons/icon_settings.png" Height="20" Width="20" Margin="10,0,0,0" />
+                            <Label Content="{x:Static resx:Strings.Settings}" Margin="50,0,0,0" Style="{StaticResource NavButtonLabel}" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Column="1" Background="#282C34" x:Name="MainContentGrid">
+            <Views:HomeUserConstrol x:Name="HomeUC" />
+        </Grid>
+
+    </Grid>
+    
+    
+</Window>

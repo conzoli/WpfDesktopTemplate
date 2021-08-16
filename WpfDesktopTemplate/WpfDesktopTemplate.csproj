@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="images\icons\cil-heart.png" />
+    <None Remove="images\icons\cil-home.png" />
+    <None Remove="images\icons\cil-menu.png" />
+    <None Remove="images\icons\cil-options-horizontal.png" />
+    <None Remove="images\icons\cil-options.png" />
+    <None Remove="images\icons\cil-x.png" />
+    <None Remove="images\icons\icon_close.png" />
+    <None Remove="images\icons\icon_menu.png" />
+    <None Remove="images\icons\icon_settings.png" />
+    <None Remove="images\images\Pepe.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="images\icons\cil-heart.png" />
+    <Resource Include="images\icons\cil-x.png" />
+    <Resource Include="images\icons\icon_close.png" />
+    <Resource Include="images\icons\icon_settings.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="images\icons\cil-home.png" />
+    <Resource Include="images\icons\cil-menu.png" />
+    <Resource Include="images\icons\cil-options-horizontal.png" />
+    <Resource Include="images\icons\cil-options.png" />
+    <Resource Include="images\icons\icon_menu.png" />
+    <Resource Include="images\images\Pepe.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\Strings.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Strings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
